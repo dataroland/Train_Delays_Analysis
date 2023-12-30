@@ -15,9 +15,9 @@ As for technical details please check the following sites:
  - Data gathering, cleaning and processing
  - Power BI presentation
  - Predictive models
- - Short Description of the Website - dataroland.com
+ - Short Description of the Website - https://dataroland.com
 
-Please also visit my website (dataroland.com) to check the result of my project.
+Please also visit my website (https://dataroland.com) to check the result of my project.
 <br />
 
 
