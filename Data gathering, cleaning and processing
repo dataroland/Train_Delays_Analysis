@@ -1,3 +1,5 @@
+<h1>Data gathering, cleaning and processing</h1>
+
 1) Data Collection:
 Initiating the process, I systematically retrieve train delay data from the https://elvira.mav-start.hu/ website from my Ubuntu server, focusing specifically on chosen train routes: Budapest-Keszthely, Budapest-Pécs, Budapest-Debrecen, Budapest-Békéscsaba, Budapest-Szeged, Keszthely-Győr, and their corresponding return routes. The selection criteria include direct connections and InterCity trains (excluding the Keszthely-Győr route). Employing Selenium and BeautifulSoup for web scraping, the following data is captured:
 
