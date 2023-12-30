@@ -50,3 +50,13 @@ Within the script, crucial features are calculated from the collected data:
 
 This comprehensive script serves as the foundation for the Power BI presentation, prediction models, and website functionalities, ensuring detailed insights for each of the specified train routes. The dataset is refreshed on daily basis with the previous day's delay data. 
 <br />
+
+<!--
+ ```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+--!>
