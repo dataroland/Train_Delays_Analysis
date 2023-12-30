@@ -30,4 +30,4 @@ The short-term prediction model focuses on real-time data, allowing travelers to
 
 In summary, the project combines both long-term and short-term predictive models, leveraging historical and real-time data to enhance the efficiency of train travel for both passengers and train companies.
 
-*Source: [A review of data-driven approaches to predict train delays](https://www.sciencedirect.com/science/article/pii/S0968090X23000165)*
+*Used source: [A review of data-driven approaches to predict train delays](https://www.sciencedirect.com/science/article/pii/S0968090X23000165)*
