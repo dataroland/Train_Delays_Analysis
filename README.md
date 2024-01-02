@@ -38,7 +38,7 @@ Please also visit my website (https://dataroland.com) to check the result of my 
 
 <p align="center">
 Launch the utility: <br/>
-<img src="(https://dataroland.com/wp-content/uploads/2024/01/Kepernyokep-2024-01-02-230026.png)"/>
+<img src="https://dataroland.com/wp-content/uploads/2024/01/Kepernyokep-2024-01-02-230026.png"/>
 <br />
 </p>
 
