@@ -38,7 +38,7 @@ Please also visit my website (https://dataroland.com) to check the result of my 
 
 <p align="center">
 Launch the utility: <br/>
-<img src="(https://dataroland.com/technical-summary/>
+<img src="https://dataroland.com/technical-summary"/>
 <br />
 </p>
 
