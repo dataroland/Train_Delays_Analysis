@@ -34,10 +34,10 @@ Please also visit my website (https://dataroland.com) to check the result of my 
 - <b>Jupyter Notebooks, SQLWorkbench</b>
 - <b>POWER BI Desktop</b>
 
-<h2>Program walk-through:</h2>
+<h2>Summary of the project:</h2>
 
 <p align="center">
-Launch the utility: <br/>
+Data flow: <br/>
 <img src="https://dataroland.com/wp-content/uploads/2024/01/Kepernyokep-2024-01-02-230026.png"/>
 <br />
 </p>
