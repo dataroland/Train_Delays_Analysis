@@ -68,7 +68,7 @@ data = pivoted_table.loc[:, stations_column]
 
 # Validation data preparation for the model
 ```python
-basic_table_test = pd.read_csv('/home/dataroland/data_source_course/Train_delay/Predictive_model/train_data_1030_1114.csv', delimiter = ',')
+basic_table_test = pd.read_csv('path to the csv file', delimiter = ',')
 
 #agg_weather_data_test = pd.read_csv('path to the csv file', delimiter = ',')
 #basic_table_test = basic_table.merge(agg_weather_data_test, how = 'left', left_on = 'report_date', right_on = 'actual_date')
