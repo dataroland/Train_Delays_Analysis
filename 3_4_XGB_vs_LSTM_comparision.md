@@ -12,13 +12,13 @@ dfhjvhb
 
 ![Képernyőkép 2024-01-05 223354](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/87921c09-f8bb-4b2e-a2ed-f7b2471fce39)
 
-![Képernyőkép 2024-01-05 223419](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/b2d9798f-8b0e-4e8f-b768-fadb39dcbca9)
+![Képernyőkép 2024-01-05 223419](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/dcb27004-b2b7-4c7a-8328-8f3852e47221)
 
-![Képernyőkép 2024-01-05 223450](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/7d8675ab-1ea3-4388-a43b-43a1f3f2c5a4)
+![Képernyőkép 2024-01-05 223450](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/6acd09e8-563e-4ab0-a8ea-8de28d2f4a29)
 
-![Képernyőkép 2024-01-05 223505](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/f5ed2783-535d-4f76-8d30-942f7c078416)
+![Képernyőkép 2024-01-05 223505](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/248b4673-d6b5-4688-a87a-77cc54144d68)
 
-![Képernyőkép 2024-01-05 223518](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/ec0dfb50-1b84-4b56-a2a4-4eb3c3938c6f)
+![Képernyőkép 2024-01-05 223518](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/62b097a6-9b4d-42ed-b6cf-fdd882006a58)
 
 ![Képernyőkép 2024-01-05 223552](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/cb41d869-2e3f-48e8-8135-5d02fd44d805)
 ![Képernyőkép 2024-01-05 223605](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/1626ff58-0546-4e57-b0ad-03cdd9919365)
