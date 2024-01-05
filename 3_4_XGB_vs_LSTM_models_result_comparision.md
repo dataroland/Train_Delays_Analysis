@@ -1,6 +1,12 @@
-# Comparison of the results of the Predictive Models
+# Comparison of Predictive Model Results
 
-Below you can see the comparison of the results of the XGB and LSTM models based on mean absolute error. The MAE was calculated for the end station delay prediction based on the previous stations actual delays. Some help tome understand the charts below based on Budapest-Békéscsaba line: the first chart shows the predictted delays by the models and by test and validation phase at the end station of the line. E.g.: in case of the first station actual delay the models predict delay for the end station (Békéscsaba), in case of the second station the model predicts delay for Békéscsaba based on the first and second stations actual delay, and so on. The second chart's role to help to understand the average delays of the stations during the analyzed period. 
+In the following analysis, I present a comparison of the outcomes obtained from the XGB and LSTM models, utilizing mean absolute error (MAE) as the metric. The MAE was computed for predicting end station delays, leveraging the actual delays at preceding stations.
+
+To facilitate comprehension, let's delve into the specifics of the Budapest-Békéscsaba line. The initial chart illustrates the predicted delays by both models during the test and validation phases at the terminal station. For instance, when considering the actual delay at the first station, the models forecast the delay at the end station (Békéscsaba). Similarly, for the second station, the model predicts the delay at Békéscsaba based on the actual delays at the first and second stations, and so forth.
+
+The second chart plays a crucial role in elucidating the average delays experienced at each station throughout the analyzed period. Notably, both models exhibited enhanced prediction accuracy as the forecasting approached the end stations. Noteworthy, the LSTM model consistently outperformed XGBoost across various lines in both the test and validation phases.
+
+# Budapest-Békéscsaba
 ![Képernyőkép 2024-01-05 222524](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/6f2b809a-f476-4ee2-8e06-c66c0ff74656)
 
 
