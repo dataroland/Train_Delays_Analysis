@@ -4,7 +4,7 @@ dfhjvhb
 
 ![Képernyőkép 2024-01-05 222541](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/431a99ae-9ed4-40c3-a90d-e9f173756522)
 
-![Képernyőkép 2024-01-05 222905](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/e78cd51f-c947-4314-825e-7471d1e33de1)
+![Képernyőkép 2024-01-05 222905](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/98a27f91-31e5-48c0-a303-cd70d2dc8076)
 
 ![Képernyőkép 2024-01-05 222959](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/b595f0a2-1f20-4ea0-a73f-6d7c2c530de0)
 
