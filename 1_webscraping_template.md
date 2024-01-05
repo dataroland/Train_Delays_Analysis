@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+```python
 
 #the trains with the duration (h:mm), I would like to analyze:
 bp_debrecen = ["2:28", "2:30", "2:33", "2:38", "2:35"]
@@ -312,3 +312,4 @@ train_route_full_full_df.to_csv(file_path1, index=False, header=False)
 
 file_path2 = 'path2 of the folder on the server'
 train_route_full_full_df.to_csv(file_path2, mode='a', index=False, header=False)
+```
