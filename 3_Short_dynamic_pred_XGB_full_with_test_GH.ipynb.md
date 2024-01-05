@@ -1,4 +1,4 @@
-# 1) Training data preparation for the model
+# Training data preparation for the model
 ```python
 
 
@@ -107,4 +107,183 @@ data_test = pivoted_table_test.loc[:, stations_column_test]
 data_test = data_test.values.tolist()
 data_test_float = [[float(x) for x in inner_list] for inner_list in data_test]
 ```
+
+# Train the data on the model
+
+```python
+stations = short_table1.groupby(['station_index']).count().reset_index(drop=False)['station_index'].tolist()
+stations = sorted(stations, key=lambda x: int(x.split('_')[0]))
+
+e = 0
+i = 1
+delays = []
+accuracy_test = []
+for station in range(0, len(stations)-1):
+    #model
+    # Define the features and target variable
+    choosed_station = stations[0:i]
+    input_stations = stations_column[0:i]
+    target_station = stations_column[(e+1):len(stations)]
+    stations_full = input_stations + target_station
+    
+    X = data[input_stations]
+    y = data[target_station]
+    
+    # Encode categorical variables using one-hot encoding
+    #X = pd.get_dummies(X, columns=['key', 'station_number', 'day_of_week'], drop_first=False)
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # Create an XGBoost model
+    model = XGBRegressor()
+    model.fit(X_train, y_train)
+    
+    # Make predictions on the test set
+    y_pred = model.predict(X_test)
+
+    # Metrics calculation:
+    from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+    
+    metrics = ['mae', 'mse', 'rmse', 'r2_score']
+            
+    predicted_data = y_pred
+    actual_data = y_test
+    
+    mae = mean_absolute_error(y_pred, y_test)
+    mse = mean_squared_error(y_pred, y_test)
+    rmse = np.sqrt(mse)
+    r2_value = r2_score(y_pred, y_test)
+    accuracy_test.append(mae)
+    accuracy_test.append(mse)
+    accuracy_test.append(rmse)
+    accuracy_test.append(r2_value)
+
+    # Validation with external data:
+    s = 0
+    for test in range(0, len(data_test)):
+        t = 0
+        #input
+        delay_at_input_stations = data_test[s][0:(e+1)]
+        #delay_at_input2_station = 12
+        dictionary = {}
+        
+        for dic in range(0, len(delay_at_input_stations)):
+            dictionary[stations_full[t]]= [delay_at_input_stations[t]]
+            t = t + 1
+        input_data = pd.DataFrame(dictionary)
+        
+        end_station_delay = model.predict(input_data)
+        try: 
+            delay = delay_at_input_stations + end_station_delay[0].tolist()
+        except:
+            delay = delay_at_input_stations + end_station_delay.tolist()
+        
+        delays.append(delay)
+        
+        s = s + 1
+        
+    i = i + 1
+    e = e + 1
+```
+
+# Validation with external data
+
+```python
+# Validation with external data (continue):
+result = []
+a = 0
+c = 0
+d = 0
+e = 0
+f = 0
+t = 0
+
+for data in range(0,len(stations) * len(data_test_float)):
+    dictionary_res = {}
+    dictionary_res['station'] = stations[c]    
+    t = f
+    for fore in range(0, len(stations)-1):
+        dictionary_res[stations[fore]] = delays[t][a]        
+        t = t + len(data_test) 
+    dictionary_res[stations[len(stations)-1]] = data_test_float[d][e]
+    c = c + 1
+    a = a + 1
+    e = e + 1
+
+    if c != len(stations):
+        t = f
+    if c == len(stations):
+        c = 0      
+        f = f + 1      
+    if a == len(stations):
+        a = 0 
+    if e == len(stations):
+        e = 0
+        d = d + 1
+    
+    result.append(dictionary_res)
+
+result_df = pd.DataFrame(result)
+result_df_fin = result_df[result_df.station == stations[len(stations)-1]]
+```
+
+# Calculation of metrics for the validation part
+
+```python
+# Calculation of metrics for the validation part:
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+accuracy = []
+# Assuming df is your DataFrame with 'predicted_data' and 'actual_data' columns
+metrics = ['mae', 'mse', 'rmse', 'r2_score']
+for m in range(0, len(stations)-1):
+    
+    predicted_data = result_df_fin[stations[m]]
+    actual_data = result_df_fin[stations[len(stations)-1]]
+    
+    mae = mean_absolute_error(actual_data, predicted_data)
+    mse = mean_squared_error(actual_data, predicted_data)
+    rmse = np.sqrt(mse)
+    r2_value = r2_score(actual_data, predicted_data)
+    accuracy.append(mae)
+    accuracy.append(mse)
+    accuracy.append(rmse)
+    accuracy.append(r2_value)
+metrics_test_valid = []
+n = 0
+
+for metric in metrics:
+    dictionary_metrics = {}
+    dictionary_metrics['metric_valid'] = metrics[n]
+    m = n
+    l = 0
+    for station in range(0, len(stations)-1):
+        dictionary_metrics[stations[l]] = accuracy[m]
+        l = l + 1
+        m = m + 4
+    metrics_test_valid.append(dictionary_metrics)
+    n = n + 1
+    
+metrics_test_valid_df = pd.DataFrame(metrics_test_valid)
+```
+
+# Calculation of metrics for the test part
+
+```python
+metrics_test = []
+n = 0
+for metric in metrics:
+    dictionary_metrics = {}
+    dictionary_metrics['metric_test'] = metrics[n]
+    m = n
+    l = 0
+    for station in range(0, len(stations)-1):
+        dictionary_metrics[stations[l]] = accuracy_test[m]
+        l = l + 1
+        m = m + 4
+    metrics_test.append(dictionary_metrics)
+    n = n + 1
+metrics_test_df = pd.DataFrame(metrics_test)
+```
+
+
 
