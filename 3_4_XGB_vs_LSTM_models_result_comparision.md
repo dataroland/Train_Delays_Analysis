@@ -1,5 +1,6 @@
-dfhjvhb
+# Comparison of the results of the Predictive Models
 
+Below you can see the comparison of the results of the XGB and LSTM models based on mean absolute error. The MAE was calculated for the end station delay prediction based on the previous stations actual delays. Some help tome understand the charts below based on Budapest-Békéscsaba line: the first chart shows the predictted delays by the models and by test and validation phase at the end station of the line. E.g.: in case of the first station actual delay the models predict delay for the end station (Békéscsaba), in case of the second station the model predicts delay for Békéscsaba based on the first and second stations actual delay, and so on. The second chart's role to help to understand the average delays of the stations during the analyzed period. 
 ![Képernyőkép 2024-01-05 222524](https://github.com/dataroland/Train_Delays_Analysis/assets/145594847/6f2b809a-f476-4ee2-8e06-c66c0ff74656)
 
 
