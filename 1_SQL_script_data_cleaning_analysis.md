@@ -1,3 +1,4 @@
+```sql
 WITH cte AS (
   SELECT *,
          CASE
@@ -60,3 +61,4 @@ OR (cte.analyzed_line = 'Győr-Keszthely' AND line_station_count = 15 AND statio
 
 ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km
 ;
+```
