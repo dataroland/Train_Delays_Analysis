@@ -1,6 +1,6 @@
-```python
+```
 
-Training data preparation for the model¶
+
 import numpy as np
 import pandas as pd
 import matplotlib
