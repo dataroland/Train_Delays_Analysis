@@ -22,7 +22,6 @@
     - Delay Forecast
   - Weather Forecast Accuracy Project
 - About Me
-- Contact
 
 ## Development and Visualization:
 
