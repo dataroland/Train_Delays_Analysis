@@ -119,7 +119,7 @@ data_test = data_test.values.tolist()
 data_test = data_test[0:10]
 ```
 
-#Train the data on the model
+# Train the data on the model
 ```python
 import numpy as np
 import tensorflow as tf
