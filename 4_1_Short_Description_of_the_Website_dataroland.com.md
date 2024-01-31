@@ -35,3 +35,4 @@
 ## Technical Challenges:
 
 The most significant challenge in website creation was the implementation of the 'Delay Forecast' site. This involved sending input data to an Ubuntu server, housing the predictive model (Python code). The model's results, in the form of predicted delays, are then sent back to the website. This complex operation was facilitated using Flask and Flask Cors libraries, with NGinx (reverse proxy server) and Gunicorn (WSGI server) to serve Python web applications. Additionally, obtaining an SSL certificate from Let's Encrypt ensured secure communication with the server. The successful integration of these technical elements enhances the website's functionality and real-time prediction capabilities.
+After two months, I changed the previously mentioned solution to a more stable one. I calculated all combinations of the possible results of the predictive model and uploaded them to a CSV file on the web server.
