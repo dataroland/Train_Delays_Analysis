@@ -33,9 +33,9 @@ line_station_counts AS (
   GROUP BY analyzed_line, report_date, train_start_time
 )
 SELECT *,
-       CASE WHEN station_km = 0 THEN 0 ELSE arrtime_diff - LAG(deptime_diff) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) END as running_delay,
-       CASE WHEN train_deptime_t = '00:00:00' OR LEAD(station_km = 0) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) THEN 0 ELSE deptime_diff - arrtime_diff END as stop_delay,
-       CASE WHEN station_km = 0 THEN 0 ELSE arrtime_diff - LAG(deptime_diff) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) END + (CASE WHEN train_deptime_t = '00:00:00' OR LEAD(station_km = 0) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) THEN 0 ELSE deptime_diff - arrtime_diff END) as station_delay,
+       CASE WHEN station_index = '1_station' THEN arrtime_diff ELSE arrtime_diff - LAG(deptime_diff) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) END as running_delay,
+       CASE WHEN train_deptime_t = '00:00:00' OR LEAD(station_index = '1_station') OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) THEN 0 ELSE deptime_diff - arrtime_diff END as stop_delay,
+       CASE WHEN station_index = '1_station' THEN arrtime_diff ELSE arrtime_diff - LAG(deptime_diff) OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) END + (CASE WHEN train_deptime_t = '00:00:00' OR LEAD(station_index = '1_station') OVER (ORDER BY cte.analyzed_line, cte.report_date, cte.train_start_time, station_km) THEN 0 ELSE deptime_diff - arrtime_diff END) as station_delay,
        EXTRACT(WEEK FROM cte.report_date) as week,
        EXTRACT(Month FROM cte.report_date) as month,
        CAST(REGEXP_REPLACE(distance, '\D', '', 'g') AS integer) AS distance_km,
