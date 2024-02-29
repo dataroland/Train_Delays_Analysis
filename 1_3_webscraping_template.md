@@ -57,7 +57,7 @@ def parse_trains(j,a):
     from bs4 import BeautifulSoup
     city_temp1 = BeautifulSoup(page_source, 'html.parser')
         
-    timetable1 = city_temp1.find(class_="rtf").tbody.find_all("tr")
+    timetable1 = city_temp1.find(class_="rtf").tbody.find_all(lambda tag: tag.name == 'tr' and tag.get('style'))
     timetable2 = city_temp1.find(class_="rtf").tbody.find_all('div', class_="morebutton")
         
     
@@ -65,22 +65,15 @@ def parse_trains(j,a):
         
     for div in timetable2:
     
-        #if the duration of the train is not equal with the required duration than do not download the data:
+        #if the duration of the train is not equal with the required duration than do not download the data, if the start time of the train is equal with the previous train than exclude it, if the train is not direct, exclude it:
         i = 1
-        if timetable1[y].find_all("td")[4].get_text(strip=True) not in needed_trains:
-            y = y + 5
+        if timetable1[y].find_all("td")[4].get_text(strip=True) not in needed_trains or timetable1[y].find_all("td")[1].get_text(strip=True) == timetable1[y-5].find_all("td")[1].get_text(strip=True) or timetable1[y].find_all("td")[3].get_text(strip=True) != "" :
+            y = y + 1
             j = j + 2
             a = a + 2
             
             continue  
-        #I would like to exclude the same trains in the same time:
-        if timetable1[y].find_all("td")[1].get_text(strip=True) == timetable1[y-5].find_all("td")[1].get_text(strip=True):
-            y = y + 5
-            j = j + 2
-            a = a + 2
-            
-            continue 
-        
+                
         # open the train variant by different times
         xpath1 = "/html/body/div[1]/div[4]/div[1]/div/div[1]/div[7]/div/table/tbody/tr["
         xpath2 = str(j)
@@ -148,7 +141,7 @@ def parse_trains(j,a):
     
         j = j + 2
         a = a + 2
-        y = y + 5
+        y = y + 1
         
         # receive the needed data by different starting times
         for tr in help:
@@ -243,11 +236,7 @@ while retry_count < max_retries:
         driver.get("https://elvira.mav-start.hu/")
         time.sleep(3)
         
-        # click on "without transfer" button
         
-        link = driver.find_element(By.XPATH, "/html/body/div[1]/div[4]/form/div[3]/div[1]/div[2]/div[3]/div[3]/div[1]/input")
-        link.click()
-        time.sleep(1)
         # add from where
         search = driver.find_element(By.NAME, "i")
         search.send_keys(from_where)
